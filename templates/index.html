@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="hero" data-aos="fade-up">
+  <h1 class="display-5 fw-bold">Hi, I'm <span style="color: var(--secondary-color);">Vraj Shrimali</span> <i class="fas fa-hand-sparkles text-warning ms-3"></i></h1>
+  <p class="lead">Data Analyst | Python Enthusiast | SQL Explorer</p>
+  <a href="{{ url_for('static', filename='Vraj_Shrimali_Resume.pdf') }}" class="btn" download><i class="fas fa-file-alt me-2"></i> View Resume</a>
+</div>
+
+<div class="row section">
+    <div class="col-md-6 mb-4 mb-md-0" data-aos="fade-right">
+        <h2 class="section-title"> <i class="fas fa-graduation-cap me-3"></i> Education</h2>
+        <ul>
+            <li><strong>MCA in Big Data Analytics</strong><br>Parul University, 2024–2026</li>
+        </ul>
+    </div>
+    <div class="col-md-6" data-aos="fade-left">
+        <h2 class="section-title"><i class="fas fa-certificate me-3"></i> Certifications</h2>
+        <ul>
+            <li>Data Science Masters - FingerTips</li>
+            <li>Python Bootcamp - Udemy</li>
+            <li>Python - GUVI</li>
+            <li>Java - IIT Bombay</li>
+        </ul>
+    </div>
+</div>
+
+<div id="projects" class="section">
+  <h2 class="section-title"> <i class="fas fa-project-diagram me-3"></i> Projects</h2>
+  <div class="row g-4 justify-content-center"> <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+      <div class="card shadow-sm h-100"> <div class="card-body d-flex flex-column"> <h5 class="fw-bold">KBC Quiz</h5>
+          <p>Simple CLI quiz game inspired by "Kaun Banega Crorepati" using Python.</p>
+          <div class="mt-auto"> <a href="https://github.com/Vish1428/KBC_QUIZ" target="_blank" class="btn w-100"><i class="fab fa-github me-2"></i> View on GitHub</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="200">
+      <div class="card shadow-sm h-100">
+        <div class="card-body d-flex flex-column">
+          <h5 class="fw-bold">Product Rating System</h5>
+          <p>Web app that allows users to rate and review products.</p>
+          <div class="mt-auto">
+            <a href="https://github.com/Vish1428/Prodcut-Rating-System" target="_blank" class="btn w-100"><i class="fab fa-github me-2"></i> View on GitHub</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="300">
+      <div class="card shadow-sm h-100">
+        <div class="card-body d-flex flex-column">
+          <h5 class="fw-bold">Zomato Dashboard</h5>
+          <img src="{{ url_for('static', filename='img/Zomato_Dashboard.png') }}" class="img-fluid rounded mb-3" alt="Zomato Dashboard Thumbnail" />
+          <p>Interactive Tableau dashboard analyzing Zomato orders, showcasing key metrics and insights.</p>
+          <div class="mt-auto">
+            <a href="https://public.tableau.com/app/profile/vraj.shrimali/viz/Zomato_17124842666610/Story1" target="_blank" class="btn w-100"><i class="fas fa-chart-bar me-2"></i> View Dashboard</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="400">
+      <div class="card shadow-sm h-100">
+        <div class="card-body d-flex flex-column">
+          <h5 class="fw-bold">BlinkIt Dashboard</h5>
+          <img src="{{ url_for('static', filename='img/BlinkIt_Dashboard.png') }}" class="img-fluid rounded mb-3" alt="BlinkIt Dashboard Thumbnail" />
+          <p>Tableau story dashboard with KPIs and ratings insights for a quick-commerce platform.</p>
+          <div class="mt-auto">
+            <a href="https://public.tableau.com/app/profile/vraj.shrimali/viz/Blinkit_17124774428780/Dashboard1" target="_blank" class="btn w-100"><i class="fas fa-chart-bar me-2"></i> View Dashboard</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+</div>
+
+<div id="skills" class="section">
+  <h2 class="section-title"><i class="fas fa-code me-3"></i> Skills</h2>
+  <div class="d-flex flex-wrap justify-content-center gap-3">
+    <span class="skill-tag" data-aos="flip-up" data-aos-delay="100">Python</span>
+    <span class="skill-tag" data-aos="flip-up" data-aos-delay="150">Pandas</span>
+    <span class="skill-tag" data-aos="flip-up" data-aos-delay="200">NumPy</span>
+    <span class="skill-tag" data-aos="flip-up" data-aos-delay="250">Scikit-learn</span>
+    <span class="skill-tag" data-aos="flip-up" data-aos-delay="300">TensorFlow</span>
+    <span class="skill-tag" data-aos="flip-up" data-aos-delay="350">SQL</span>
+    <span class="skill-tag" data-aos="flip-up" data-aos-delay="400">Tableau</span>
+    <span class="skill-tag" data-aos="flip-up" data-aos-delay="450">Excel</span>
+    <span class="skill-tag" data-aos="flip-up" data-aos-delay="500">Power BI</span>
+    <span class="skill-tag" data-aos="flip-up" data-aos-delay="550">Machine Learning</span>
+    <span class="skill-tag" data-aos="flip-up" data-aos-delay="600">Data Visualization</span>
+  </div>
+</div>
+{% block scripts %}
+<style>
+    .skill-tag {
+        background: linear-gradient(45deg, var(--primary-color), var(--primary-light)); /* Gradient skill tags */
+        color: white;
+        padding: 12px 25px; /* Larger padding */
+        border-radius: 30px; /* More rounded */
+        font-size: 1.15rem; /* Slightly larger font */
+        font-weight: 700; /* Bolder */
+        white-space: nowrap;
+        transition: all 0.3s ease;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Stronger shadow */
+        border: 1px solid var(--border-color); /* Subtle border */
+    }
+    .skill-tag:hover {
+        background: linear-gradient(45deg, var(--primary-light), var(--primary-color)); /* Reverse gradient on hover */
+        color: white;
+        transform: translateY(-7px) scale(1.06); /* More lift and scale */
+        box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+    }
+</style>
+{% endblock %}
+
+
+<div id="contact" class="section" data-aos="fade-up">
+  <h2 class="section-title"> <i class="fas fa-paper-plane me-3"></i> Contact</h2>
+  <p class="text-center mb-5">Feel free to reach out to me for collaborations, questions, or just a chat!</p>
+  <div class="d-flex justify-content-center flex-wrap">
+    <a href="mailto:vajushrimali387@gmail.com" target="_blank" class="contact-icon mx-3" data-aos="zoom-in" data-aos-delay="100">
+        <i class="fas fa-envelope"></i>
+        <span>Email</span>
+    </a>
+    <a href="https://github.com/Vish1428" target="_blank" class="contact-icon mx-3" data-aos="zoom-in" data-aos-delay="200">
+        <i class="fab fa-github"></i>
+        <span>GitHub</span>
+    </a>
+    <a href="https://www.linkedin.com/in/vraj-shrimali-63492b21b/" target="_blank" class="contact-icon mx-3" data-aos="zoom-in" data-aos-delay="300">
+        <i class="fab fa-linkedin"></i>
+        <span>LinkedIn</span>
+    </a>
+  </div>
+</div>
+{% endblock %}

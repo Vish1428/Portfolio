@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vraj | Data Analyst Portfolio</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Poppins:wght@404;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+        /* Define your primary brand color */
+        --primary-color: #A06CD5; /* Slightly adjusted to a more vibrant light purple */
+        --primary-light: #C099EE; /* A lighter shade for gradients or accents */
+        --secondary-color: #ffdd57; /* Your existing accent yellow */
+        --dark-bg: #111111; /* Even darker background for contrast */
+        --card-bg: #1A1A1A; /* Darker card background */
+        --text-color: #f0f0f0;
+        --light-text-color: #cccccc; /* Slightly darker light text for better contrast */
+        --border-color: rgba(255, 255, 255, 0.08); /* Subtle border for elements */
+        --shadow-color-dark: rgba(0, 0, 0, 0.4);
+        --shadow-color-light: rgba(0, 0, 0, 0.2);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--dark-bg);
+      color: var(--text-color);
+      font-family: 'Open Sans', sans-serif; /* Body font */
+      line-height: 1.7; /* Increased line height for readability */
+      overflow-x: hidden; /* Prevent horizontal scroll on animations */
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Poppins', sans-serif; /* Headings font */
+        color: var(--text-color);
+        font-weight: 700; /* Bolder headings */
+    }
+
+    .navbar {
+      background: rgba(17, 17, 17, 0.9); /* Darker, slightly transparent background */
+      backdrop-filter: blur(15px); /* More blur effect */
+      border-bottom: 1px solid var(--border-color);
+      padding: 1rem 0; /* More padding */
+    }
+    .navbar-brand {
+        color: var(--primary-color) !important; /* Brand color for your name */
+        font-weight: 800 !important; /* Extra bold */
+        font-size: 1.7rem; /* Larger brand name */
+        letter-spacing: 0.5px;
+    }
+    .navbar .nav-link {
+        color: var(--light-text-color) !important; /* Slightly subdued for default */
+        margin: 0 15px; /* More spacing */
+        font-size: 1.1rem;
+        transition: color 0.3s ease, transform 0.2s ease;
+        position: relative; /* For underline effect */
+    }
+    .navbar .nav-link:hover {
+        color: var(--secondary-color) !important;
+        transform: translateY(-2px); /* Slight lift on hover */
+    }
+    .navbar .nav-link::after { /* Animated underline */
+        content: '';
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        background-color: var(--secondary-color);
+        left: 0;
+        bottom: -5px;
+        transition: width 0.3s ease-in-out;
+    }
+    .navbar .nav-link:hover::after {
+        width: 100%;
+    }
+
+
+    .section {
+      background: var(--card-bg); /* Darker background for sections */
+      color: var(--text-color);
+      border-radius: 20px; /* More rounded corners */
+      padding: 80px 50px; /* Increased padding */
+      margin: 80px auto; /* More margin */
+      max-width: 1200px; /* Max width for content */
+      box-shadow: 0 15px 40px var(--shadow-color-dark); /* More prominent, darker shadow */
+      transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother transition */
+      border: 1px solid var(--border-color); /* Subtle border */
+      position: relative;
+      overflow: hidden; /* For any internal overflow */
+    }
+    .section::before { /* Subtle radial gradient background */
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle 800px at center, rgba(var(--primary-color-rgb, 160, 108, 213), 0.02) 0%, transparent 70%);
+        z-index: 0;
+        pointer-events: none;
+    }
+    .section:hover {
+        transform: translateY(-12px); /* More pronounced lift */
+        box-shadow: 0 25px 50px var(--shadow-color-dark); /* Deeper shadow on hover */
+    }
+    .section-title {
+      font-size: 3.2rem; /* Even larger title */
+      font-weight: 800;
+      margin-bottom: 60px; /* More space below title */
+      text-align: center;
+      color: var(--primary-color);
+      position: relative;
+      display: inline-block;
+      padding-bottom: 15px; /* More space for underline */
+    }
+    .section-title::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        width: 100px; /* Longer underline */
+        height: 5px; /* Thicker underline */
+        background-color: var(--secondary-color);
+        border-radius: 3px;
+    }
+
+
+    .hero {
+      text-align: center;
+      padding: 180px 40px 160px; /* More padding */
+      margin-top: 100px; /* Adjust margin considering fixed navbar */
+      color: white;
+      background: linear-gradient(155deg, var(--dark-bg) 0%, #000 100%); /* Deeper dark gradient */
+      border-radius: 25px; /* More rounded */
+      box-shadow: 0 20px 40px var(--shadow-color-dark); /* More prominent shadow */
+      margin-bottom: 100px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+    }
+    /* Subtle background patterns/shapes to hero - More refined */
+    .hero::before, .hero::after {
+        content: '';
+        position: absolute;
+        background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+        border-radius: 50%;
+        z-index: 0;
+        opacity: 0.05; /* More subtle */
+    }
+    .hero::before {
+        width: 200px;
+        height: 200px;
+        top: -80px;
+        left: -80px;
+    }
+    .hero::after {
+        width: 250px;
+        height: 250px;
+        bottom: -100px;
+        right: -100px;
+        opacity: 0.07;
+    }
+
+    .hero h1 {
+        font-size: 4.5rem; /* Even larger hero title */
+        font-weight: 900; /* Ultra bold */
+        margin-bottom: 20px;
+        position: relative;
+        z-index: 1;
+        letter-spacing: -1px; /* Tighter letter spacing */
+    }
+    .hero p.lead {
+        font-size: 1.6rem;
+        color: var(--light-text-color);
+        position: relative;
+        z-index: 1;
+        max-width: 800px; /* Constrain width for readability */
+        margin: 0 auto 40px auto;
+    }
+    .hero .btn {
+        padding: 18px 45px; /* Larger button */
+        font-size: 1.3rem;
+        font-weight: 700;
+        border-radius: 50px;
+        margin-top: 30px;
+        background: linear-gradient(45deg, var(--primary-color), var(--primary-light)); /* Gradient button */
+        border: none; /* No border for gradient button */
+        color: white;
+        transition: all 0.4s ease;
+        position: relative;
+        z-index: 1;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+    .hero .btn:hover {
+        background: linear-gradient(45deg, var(--primary-light), var(--primary-color)); /* Reverse gradient on hover */
+        transform: translateY(-5px) scale(1.02); /* More pronounced lift and slight scale */
+        box-shadow: 0 12px 25px rgba(0,0,0,0.5);
+    }
+
+    .card {
+      border-radius: 18px; /* Slightly more rounded */
+      background-color: var(--card-bg); /* Use card-bg variable */
+      color: var(--text-color);
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother transition */
+      border: 1px solid var(--border-color); /* Consistent border */
+      overflow: hidden;
+      box-shadow: 0 8px 20px var(--shadow-color-light); /* Softer shadow */
+    }
+    .card:hover {
+      transform: translateY(-12px); /* Lift more on hover */
+      box-shadow: 0 18px 35px var(--shadow-color-dark); /* More intense shadow */
+    }
+    .card-body {
+        padding: 30px;
+    }
+    .card-body h5 {
+        color: var(--secondary-color);
+        font-size: 1.8rem; /* Larger project titles */
+        margin-bottom: 18px;
+    }
+    .card-body p {
+        color: var(--light-text-color);
+        font-size: 1.1rem;
+        line-height: 1.7;
+    }
+    .card .btn {
+        background: linear-gradient(45deg, var(--primary-color), var(--primary-light)); /* Gradient for card buttons */
+        border: none;
+        color: #fff;
+        padding: 12px 30px; /* Slightly larger */
+        border-radius: 10px;
+        font-size: 1.05rem;
+        margin-top: 20px; /* More space */
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .card .btn:hover {
+        background: linear-gradient(45deg, var(--primary-light), var(--primary-color));
+        color: white; /* Keep white text for gradient */
+        transform: scale(1.03); /* Slight scale */
+        box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    }
+
+    /* Education & Certifications Specifics */
+    .section h2.section-title {
+        text-align: left;
+        padding-left: 0;
+        display: block;
+    }
+    .section h2.section-title::after {
+        left: 0;
+        transform: translateX(0);
+    }
+    .section p, .section ul {
+        font-size: 1.15rem; /* Slightly larger text */
+        color: var(--light-text-color);
+    }
+    .section ul {
+        list-style: none;
+        padding-left: 0;
+    }
+    .section ul li {
+        position: relative;
+        padding-left: 30px; /* More space for custom bullet */
+        margin-bottom: 12px; /* More line spacing */
+    }
+    .section ul li::before {
+        content: '\2022';
+        color: var(--secondary-color);
+        font-weight: bold;
+        display: inline-block;
+        width: 1.2em; /* Larger bullet */
+        margin-left: -1.2em;
+        position: absolute;
+        left: 0;
+        font-size: 1.5rem; /* Larger bullet point */
+        line-height: 1;
+    }
+
+    /* Contact Section */
+    .contact-section p {
+        font-size: 1.25rem; /* Larger contact intro text */
+        color: var(--light-text-color);
+    }
+    .contact-section .contact-icon {
+        font-size: 3.5rem; /* Larger icons */
+        margin: 0 25px; /* More spacing between icons */
+        color: var(--primary-color);
+        transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+        display: flex; /* Flex for icon and text */
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none; /* Remove underline from link */
+    }
+    .contact-section .contact-icon i {
+        margin-bottom: 10px; /* Space between icon and text */
+        text-shadow: 0 5px 10px rgba(0,0,0,0.3); /* Subtle shadow for icons */
+    }
+    .contact-section .contact-icon:hover {
+        color: var(--secondary-color);
+        transform: translateY(-8px); /* More pronounced lift */
+        text-shadow: 0 8px 15px rgba(0,0,0,0.5); /* Stronger shadow on hover */
+    }
+    .contact-section .contact-icon span {
+        font-size: 1.1rem;
+        color: var(--light-text-color);
+        font-weight: 600;
+        transition: color 0.3s ease;
+    }
+    .contact-section .contact-icon:hover span {
+        color: var(--secondary-color);
+    }
+
+
+    .scroll-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--primary-color);
+      color: #fff;
+      padding: 16px 20px; /* Larger */
+      border-radius: 50%;
+      font-size: 26px; /* Larger icon */
+      cursor: pointer;
+      display: none;
+      z-index: 1000;
+      box-shadow: 0 8px 20px var(--shadow-color-dark); /* More prominent shadow */
+      transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .scroll-to-top:hover {
+        background-color: var(--secondary-color);
+        transform: translateY(-5px) scale(1.05); /* More lift and scale */
+        box-shadow: 0 12px 25px var(--shadow-color-dark);
+    }
+
+    footer {
+      background-color: #0d0d0d; /* Even darker footer */
+      color: var(--light-text-color);
+      text-align: center;
+      padding: 50px 0; /* More padding */
+      margin-top: 100px;
+      border-top: 1px solid var(--border-color);
+      font-size: 0.95rem;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 992px) {
+        .section {
+            padding: 70px 30px;
+            margin: 60px auto;
+        }
+        .hero {
+            padding: 140px 30px 120px;
+            margin-top: 80px;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+        }
+        .hero p.lead {
+            font-size: 1.4rem;
+        }
+        .section-title {
+            font-size: 2.5rem;
+        }
+        .card-body h5 {
+            font-size: 1.6rem;
+        }
+        .card-body p {
+            font-size: 1rem;
+        }
+        .navbar .nav-link {
+            margin: 0 10px;
+            font-size: 1rem;
+        }
+        .contact-section .contact-icon {
+            font-size: 3rem;
+            margin: 0 15px;
+        }
+        .contact-section .contact-icon i {
+             margin-bottom: 5px;
+        }
+        .contact-section .contact-icon span {
+            font-size: 1rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .section {
+            padding: 50px 20px;
+            margin: 40px 15px;
+        }
+        .hero {
+            padding: 100px 20px 80px;
+            margin-top: 60px;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+        }
+        .hero p.lead {
+            font-size: 1.2rem;
+        }
+        .section-title {
+            font-size: 2.2rem;
+        }
+        .card-body h5 {
+            font-size: 1.4rem;
+        }
+        .card-body p {
+            font-size: 0.95rem;
+        }
+        .navbar .nav-link {
+            margin: 0 5px;
+        }
+        .contact-section .contact-icon {
+            font-size: 2.5rem;
+            margin: 0 10px;
+        }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">Vraj Shrimali</a>
+      <div class="ms-auto">
+        <a class="nav-link d-inline" href="#projects">Projects</a>
+        <a class="nav-link d-inline" href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+
+  <div class="scroll-to-top" id="scrollToTop"><i class="fas fa-arrow-up"></i></div>
+
+  <footer>
+    &copy; 2025 Vraj Shrimali
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1200, /* Slightly longer duration */
+      once: true,
+      easing: 'ease-out-cubic', /* Smoother easing function */
+      mirror: false
+    });
+
+    // Scroll to Top Button functionality
+    const scrollBtn = document.getElementById("scrollToTop");
+    window.onscroll = function() {
+      if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) { /* Show later */
+        scrollBtn.style.display = "block";
+      } else {
+        scrollBtn.style.display = "none";
+      }
+    };
+    scrollBtn.onclick = function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Optional: Smooth scroll for internal links (if not using Bootstrap's scrollspy)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+  </script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>
